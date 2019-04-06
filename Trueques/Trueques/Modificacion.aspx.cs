@@ -12,14 +12,34 @@ namespace Trueques
     {
         DataClasses1DataContext db = new DataClasses1DataContext();
         public string confirmar, antiguo, nuevo;
-
+        public int bandera;
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            try
+            {
+                string modif_id = Session["user"].ToString();
+                var query = (from a in db.Usuario
+                             where a.Email == modif_id
+                             select a).FirstOrDefault();
+
+                mod_nombre.Text = query.Nombre;
+                mod_apodo.Text = query.Apodo;
+                mod_ciudad.Text = query.Ciudad;
+                mod_telefono.Text = query.Telefono;
+                mod_email.Text = query.Email;
+                //mod_password.Text = query.Password;
+                modfecha.Text = query.Fecha_Nacimiento;
+                mod_perfil.ImageUrl = query.Imagen_Perfil;
 
 
+                test.Text = query.Password;
+            }
+            catch (Exception)
+            {
 
-
+                Response.Redirect("Login.aspx");
+            }
 
 
         }
@@ -53,7 +73,7 @@ namespace Trueques
                     query.Apodo = mod_apodo.Text;
                     query.Ciudad = mod_ciudad.Text;
                     query.Telefono = mod_telefono.Text;
-                    query.Password = mod_password.Text;
+                    query.Password = Seguridad.Encriptar(mod_password.Text);
                     //query.Imagen_Perfil = ruta;
                     if (FileUpload1.HasFile)
                     {
@@ -65,11 +85,15 @@ namespace Trueques
 
                         if (test.Text == confirmar)
                         {
+                            //mod_password.Text = Seguridad.Encriptar(mod_password.Text);
+                            // query.Password = mod_password.Text;
                             db.SubmitChanges();
                             Response.Redirect("Panel_Usuario.aspx");
+
                         }
                         else
                         {
+
                             db.SubmitChanges();
                             Session.Remove("user");
                             Response.Redirect("Login.aspx");

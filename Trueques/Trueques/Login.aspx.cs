@@ -18,7 +18,7 @@ namespace Trueques
         protected void Button1_Click(object sender, EventArgs e)
         {
             string usuario = this.usuario.Text;
-            string password = this.password.Text;
+            string password = Seguridad.Encriptar(this.password.Text);
             var consulta = from m in db.Usuario
                            select new
                            {
@@ -33,6 +33,7 @@ namespace Trueques
                            };
             foreach (var x in consulta)
             {
+
                 if (x.Email == usuario && x.Password == password)
                 {
                     Session["user"] = x.Email;

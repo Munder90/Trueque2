@@ -4,20 +4,20 @@
     <div class="row">
         <div class="card-panel text-center">
             <br />
-            <%--&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;--%>
-            <%--<asp:Label ID="Label3" runat="server" Font-Bold="True" Text="Inicio de sesion"></asp:Label>--%>
+            <%--&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <asp:Label ID="Label3" runat="server" Font-Bold="True"  Text="Inicio de sesion"></asp:Label>--%>
             <br /><br />
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <asp:Label ID="Label2" runat="server" Text="Email"></asp:Label>
+            <asp:Label ID="Label2" runat="server"  Text="Email"></asp:Label>
             &nbsp;&nbsp; 
             <asp:TextBox ID="usuario" runat="server"></asp:TextBox>
             <br /><br />
             &nbsp;&nbsp;
-            <asp:Label ID="Label1" runat="server" Text="Password&nbsp;&nbsp;"></asp:Label>
-            &nbsp;<asp:TextBox ID="password" runat="server" TextMode="Password"></asp:TextBox>
+            <asp:Label ID="Label1" runat="server"  Text="Password&nbsp;&nbsp;"></asp:Label>
+            &nbsp; <asp:TextBox ID="password" runat="server" TextMode="Password"></asp:TextBox>
             <br />
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <asp:Label ID="error" runat="server" ForeColor="Red"></asp:Label>
+            <asp:Label ID="error" runat="server" ></asp:Label>
             <br /><br />
             <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Iniciar sesion" BackColor="#999999" ForeColor="Black" />
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
