@@ -12,13 +12,22 @@ namespace Trueques
         DataClasses1DataContext db = new DataClasses1DataContext();
         protected void Page_Load(object sender, EventArgs e)
         {
-            user.Text = Session["user"].ToString();
-            string perfil = Session["user"].ToString();
-            var query = (from a in db.Usuario
-                         where a.Email == perfil
-                         select a).FirstOrDefault();
+            try
+            {
+                user.Text = Session["user"].ToString();
+                string perfil = Session["user"].ToString();
+                var query = (from a in db.Usuario
+                             where a.Email == perfil
+                             select a).FirstOrDefault();
 
-            panel_perfil.ImageUrl = query.Imagen_Perfil;
+                panel_perfil.ImageUrl = query.Imagen_Perfil;
+            }
+            catch (Exception)
+            {
+
+                Response.Redirect("Login.aspx");
+            }
+
 
 
         }

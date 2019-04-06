@@ -14,6 +14,7 @@ namespace Trueques
         public string confirmar, prev, previoemail;
         public int dias, años, años2;
 
+
         protected void cancelar_Click(object sender, EventArgs e)
         {
             Response.Redirect("Login.aspx");
@@ -28,7 +29,7 @@ namespace Trueques
                 string ruta = "~/Imagenes/Perfil/" + nombreArchivo;
                 FileUpload1.SaveAs(Server.MapPath(ruta));
 
-                Label3.Text = "Se guardó la imagen. y su ruta es" + Environment.NewLine + ruta;
+                // Label3.Text = "Se guardó la imagen. y su ruta es" + Environment.NewLine + ruta;
 
             }
             else
@@ -49,6 +50,22 @@ namespace Trueques
             //}
         }
 
+        //public int Edad(DateTime fechaNacimiento)
+        //{
+        //    //Obtengo la diferencia en años.
+        //    int edad = DateTime.Now.Year - fechaNacimiento.Year;
+
+        //    //Obtengo la fecha de cumpleaños de este año.
+        //    DateTime nacimientoAhora = fechaNacimiento.AddYears(edad);
+        //     //Le resto un año si la fecha actual es anterior 
+        //     //al día de nacimiento.
+        //    if (DateTime.Now.CompareTo(nacimientoAhora) > 0)
+        //    {
+        //        edad--;
+        //    }
+
+        //    return edad;
+        //}
         protected void Calendar1_SelectionChanged(object sender, EventArgs e)
         {
 
@@ -89,7 +106,9 @@ namespace Trueques
             //{
             //    Calendar1.Visible = false;
             //}
+
         }
+
 
         protected void registrar_Click(object sender, EventArgs e)
         {
@@ -144,6 +163,10 @@ namespace Trueques
                                     if (d.Length > 0 && m.Length > 0 && a.Length > 0)
                                     {
                                         int diferencia = 2019 - int.Parse(año.Text);
+                                        //int difdia = 09, difmes=04;
+                                        // string diauser = dia.Text, mesuser=mes.Text;
+                                        //       DateTime fecha =Convert.ToDateTime(dia.Text+mes.Text+año.Text);
+                                        //Label15 = fecha;
                                         if (diferencia >= 18)
                                         {
                                             if (FileUpload1.HasFile)
@@ -152,6 +175,9 @@ namespace Trueques
                                                 string nombreArchivo = FileUpload1.FileName;
                                                 string ruta = "~/Imagenes/Perfil/" + nombreArchivo;
                                                 FileUpload1.SaveAs(Server.MapPath(ruta));
+                                                //encriptamos la cadena inicial       
+                                                password.Text = Seguridad.Encriptar(pass);
+                                                nuevo.Password = password.Text;
                                                 nuevo.Imagen_Perfil = ruta;
                                                 //Label3.Text = "Se guardó la imagen. y su ruta es" + Environment.NewLine + ruta;
                                                 db.Usuario.InsertOnSubmit(nuevo);

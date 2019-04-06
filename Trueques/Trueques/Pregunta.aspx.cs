@@ -29,7 +29,10 @@ namespace Trueques
             {
                 if (x.Email == recuperar && x.Nombre_Mascota == mascota_recuperar.Text)
                 {
-                    recumensaje.Text = "Su Password es: " + x.Password;
+                    // recumensaje.Text = "Su Password es: " + x.Password;
+                    Session["user"] = x.Email;
+                    Response.Redirect("Cambia_Password.aspx");
+                    // Session["user"].ToString();
                 }
                 else
                 {
