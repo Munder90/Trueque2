@@ -28,12 +28,13 @@ namespace Trueques
                 mod_ciudad.Text = query.Ciudad;
                 mod_telefono.Text = query.Telefono;
                 mod_email.Text = query.Email;
+                test.Text = Seguridad.DesEncriptar(query.Password);
                 //mod_password.Text = query.Password;
                 modfecha.Text = query.Fecha_Nacimiento;
                 mod_perfil.ImageUrl = query.Imagen_Perfil;
 
 
-                test.Text = query.Password;
+                //test.Text = query.Password;
             }
             catch (Exception)
             {
