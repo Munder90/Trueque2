@@ -151,3 +151,4 @@ D:\Documents\GitHub\Trueque2\Trueques\Trueques\obj\Debug\Trueques.csproj.CoreCom
 D:\Documents\GitHub\Trueque2\Trueques\Trueques\obj\Debug\Trueques.csproj.CopyComplete
 D:\Documents\GitHub\Trueque2\Trueques\Trueques\obj\Debug\Trueques.dll
 D:\Documents\GitHub\Trueque2\Trueques\Trueques\obj\Debug\Trueques.pdb
+D:\Documents\GitHub\Trueque2\Trueques\Trueques\obj\Debug\Trueques.csprojAssemblyReference.cache
