@@ -1,5 +1,12 @@
-﻿<?xml version="1.0" encoding="utf-8"?><Database Name="Trueques" Class="DataClasses1DataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="WebSettings" ConnectionString="Data Source=SF-0011;Initial Catalog=Trueques;Integrated Security=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="TruequesConnectionString" Provider="System.Data.SqlClient" />
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="TRK" Class="DataClasses1DataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=SF-0011;Initial Catalog=TRK;Integrated Security=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="TRKConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Categoria" Member="Categoria">
+    <Type Name="Categoria">
+      <Column Name="idCategoria" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="nombreCat" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Association Name="Categoria_Producto_T" Member="Producto_T" ThisKey="idCategoria" OtherKey="idCategoria" Type="Producto_T" />
+    </Type>
+  </Table>
   <Table Name="dbo.Usuario" Member="Usuario">
     <Type Name="Usuario">
       <Column Name="idUsuario" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -12,6 +19,52 @@
       <Column Name="Fecha_Nacimiento" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
       <Column Name="Nombre_Mascota" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
       <Column Name="Imagen_Perfil" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Association Name="Usuario_Producto_T" Member="Producto_T" ThisKey="idUsuario" OtherKey="idUsuario" Type="Producto_T" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Etiqueta" Member="Etiqueta">
+    <Type Name="Etiqueta">
+      <Column Name="idEtiqueta" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="descripcion" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Association Name="Etiqueta_Producto_B" Member="Producto_B" ThisKey="idEtiqueta" OtherKey="idEtiquetaB" Type="Producto_B" />
+      <Association Name="Etiqueta_Producto_T" Member="Producto_T" ThisKey="idEtiqueta" OtherKey="idEtiqueta" Type="Producto_T" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Producto_B" Member="Producto_B">
+    <Type Name="Producto_B">
+      <Column Name="idProductoB" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="nombreProductoB" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="imgProductoB" Type="System.Data.Linq.Binary" DbType="Image" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="idEtiquetaB" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="idProductoT" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Producto_B_Trueque" Member="Trueque" ThisKey="idProductoB" OtherKey="idProductoB" Type="Trueque" />
+      <Association Name="Etiqueta_Producto_B" Member="Etiqueta" ThisKey="idEtiquetaB" OtherKey="idEtiqueta" Type="Etiqueta" IsForeignKey="true" />
+      <Association Name="Producto_T_Producto_B" Member="Producto_T" ThisKey="idProductoT" OtherKey="idProductoT" Type="Producto_T" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Producto_T" Member="Producto_T">
+    <Type Name="Producto_T">
+      <Column Name="idProductoT" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="nombreProductoT" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="imgProductoT" Type="System.Data.Linq.Binary" DbType="Image" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="idUsuario" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="idCategoria" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="idEtiqueta" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Producto_T_Producto_B" Member="Producto_B" ThisKey="idProductoT" OtherKey="idProductoT" Type="Producto_B" />
+      <Association Name="Producto_T_Trueque" Member="Trueque" ThisKey="idProductoT" OtherKey="idProductoT" Type="Trueque" />
+      <Association Name="Categoria_Producto_T" Member="Categoria" ThisKey="idCategoria" OtherKey="idCategoria" Type="Categoria" IsForeignKey="true" />
+      <Association Name="Etiqueta_Producto_T" Member="Etiqueta" ThisKey="idEtiqueta" OtherKey="idEtiqueta" Type="Etiqueta" IsForeignKey="true" />
+      <Association Name="Usuario_Producto_T" Member="Usuario" ThisKey="idUsuario" OtherKey="idUsuario" Type="Usuario" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Trueque" Member="Trueque">
+    <Type Name="Trueque">
+      <Column Name="idTrueque" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Estatus" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="idProductoT" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="idProductoB" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Producto_B_Trueque" Member="Producto_B" ThisKey="idProductoB" OtherKey="idProductoB" Type="Producto_B" IsForeignKey="true" />
+      <Association Name="Producto_T_Trueque" Member="Producto_T" ThisKey="idProductoT" OtherKey="idProductoT" Type="Producto_T" IsForeignKey="true" />
     </Type>
   </Table>
 </Database>

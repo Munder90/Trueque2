@@ -12,7 +12,7 @@ namespace Trueques
         DataClasses1DataContext db = new DataClasses1DataContext();
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            Session.Remove("user");
         }
 
         protected void Button1_Click(object sender, EventArgs e)

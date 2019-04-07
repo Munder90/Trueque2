@@ -11,7 +11,19 @@ namespace Trueques
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            DataClasses1DataContext db = new DataClasses1DataContext();
+            try
+            {
+                string modif_id = Session["user"].ToString();
+                var query = (from a in db.Usuario
+                             where a.Email == modif_id
+                             select a).FirstOrDefault();
+            }
+            catch (Exception)
+            {
 
+                Response.Redirect("Login.aspx");
+            }
         }
     }
 }

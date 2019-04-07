@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text.RegularExpressions;
 using System.Web;
@@ -11,7 +12,7 @@ namespace Trueques
     public partial class Modificacion : System.Web.UI.Page
     {
         DataClasses1DataContext db = new DataClasses1DataContext();
-        public string confirmar, antiguo, nuevo;
+        public string confirmar, antiguo, nuevo, ruta_old;
         public int bandera;
 
         protected void Page_Load(object sender, EventArgs e)
@@ -32,6 +33,7 @@ namespace Trueques
                 //mod_password.Text = query.Password;
                 modfecha.Text = query.Fecha_Nacimiento;
                 mod_perfil.ImageUrl = query.Imagen_Perfil;
+                ruta_old = mod_perfil.ImageUrl;
 
 
                 //test.Text = query.Password;
@@ -89,6 +91,8 @@ namespace Trueques
                             //mod_password.Text = Seguridad.Encriptar(mod_password.Text);
                             // query.Password = mod_password.Text;
                             db.SubmitChanges();
+                            //File.SetAttributes(ruta_old, FileAttributes.Normal);
+                            //File.Delete(ruta_old);
                             Response.Redirect("Panel_Usuario.aspx");
 
                         }
