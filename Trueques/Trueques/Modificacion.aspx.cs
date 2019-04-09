@@ -6,12 +6,13 @@ using System.Text.RegularExpressions;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using Trueques.Entities;
 
 namespace Trueques
 {
     public partial class Modificacion : System.Web.UI.Page
     {
-        DataClasses1DataContext db = new DataClasses1DataContext();
+        readonly TRKEntities db = new TRKEntities();
         public string confirmar, antiguo, nuevo, ruta_old;
         public int bandera;
 
@@ -20,7 +21,7 @@ namespace Trueques
             try
             {
                 string modif_id = Session["user"].ToString();
-                var query = (from a in db.Usuario
+                var query = (from a in db.Usuarios
                              where a.Email == modif_id
                              select a).FirstOrDefault();
 
@@ -68,7 +69,7 @@ namespace Trueques
                 if (mod_password.Text == confirmar)
                 {
                     string modif_id = Session["user"].ToString();
-                    var query = (from a in db.Usuario
+                    var query = (from a in db.Usuarios
                                  where a.Email == modif_id
                                  select a).FirstOrDefault();
 
@@ -90,7 +91,7 @@ namespace Trueques
                         {
                             //mod_password.Text = Seguridad.Encriptar(mod_password.Text);
                             // query.Password = mod_password.Text;
-                            db.SubmitChanges();
+                            db.SaveChanges();
                             //File.SetAttributes(ruta_old, FileAttributes.Normal);
                             //File.Delete(ruta_old);
                             Response.Redirect("Panel_Usuario.aspx");
@@ -99,7 +100,7 @@ namespace Trueques
                         else
                         {
 
-                            db.SubmitChanges();
+                            db.SaveChanges();
                             Session.Remove("user");
                             Response.Redirect("Login.aspx");
                         }
@@ -108,12 +109,12 @@ namespace Trueques
                     {
                         if (test.Text == confirmar)
                         {
-                            db.SubmitChanges();
+                            db.SaveChanges();
                             Response.Redirect("Panel_Usuario.aspx");
                         }
                         else
                         {
-                            db.SubmitChanges();
+                            db.SaveChanges();
                             Session.Remove("user");
                             Response.Redirect("Login.aspx");
                         }
@@ -142,7 +143,7 @@ namespace Trueques
         protected void Button1_Click(object sender, EventArgs e)
         {
             string modif_id = Session["user"].ToString();
-            var query = (from a in db.Usuario
+            var query = (from a in db.Usuarios
                          where a.Email == modif_id
                          select a).FirstOrDefault();
 

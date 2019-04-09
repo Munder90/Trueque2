@@ -1,0 +1,108 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="TRKModelStoreContainer" CdmEntityContainer="TRKEntities">
+    <EntitySetMapping Name="Categorias">
+      <EntityTypeMapping TypeName="TRKModel.Categoria">
+        <MappingFragment StoreEntitySet="Categoria">
+          <ScalarProperty Name="idCategoria" ColumnName="idCategoria" />
+          <ScalarProperty Name="nombreCat" ColumnName="nombreCat" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Etiquetas">
+      <EntityTypeMapping TypeName="TRKModel.Etiqueta">
+        <MappingFragment StoreEntitySet="Etiqueta">
+          <ScalarProperty Name="idEtiqueta" ColumnName="idEtiqueta" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Producto_B">
+      <EntityTypeMapping TypeName="TRKModel.Producto_B">
+        <MappingFragment StoreEntitySet="Producto_B">
+          <ScalarProperty Name="idProductoB" ColumnName="idProductoB" />
+          <ScalarProperty Name="nombreProductoB" ColumnName="nombreProductoB" />
+          <ScalarProperty Name="imgProductoB" ColumnName="imgProductoB" />
+          <ScalarProperty Name="idEtiquetaB" ColumnName="idEtiquetaB" />
+          <ScalarProperty Name="idProductoT" ColumnName="idProductoT" />
+          <ScalarProperty Name="idUsuarioB" ColumnName="idUsuarioB" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Producto_T">
+      <EntityTypeMapping TypeName="TRKModel.Producto_T">
+        <MappingFragment StoreEntitySet="Producto_T">
+          <ScalarProperty Name="idProductoT" ColumnName="idProductoT" />
+          <ScalarProperty Name="nombreProductoT" ColumnName="nombreProductoT" />
+          <ScalarProperty Name="imgProductoT" ColumnName="imgProductoT" />
+          <ScalarProperty Name="idUsuario" ColumnName="idUsuario" />
+          <ScalarProperty Name="idCategoria" ColumnName="idCategoria" />
+          <ScalarProperty Name="idEtiqueta" ColumnName="idEtiqueta" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="TRKModel.sysdiagram">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Trueques">
+      <EntityTypeMapping TypeName="TRKModel.Trueque">
+        <MappingFragment StoreEntitySet="Trueque">
+          <ScalarProperty Name="idTrueque" ColumnName="idTrueque" />
+          <ScalarProperty Name="Estatus" ColumnName="Estatus" />
+          <ScalarProperty Name="idProductoT" ColumnName="idProductoT" />
+          <ScalarProperty Name="idProductoB" ColumnName="idProductoB" />
+          <ScalarProperty Name="idUsuarioT" ColumnName="idUsuarioT" />
+          <ScalarProperty Name="idUsuarioB" ColumnName="idUsuarioB" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Usuarios">
+      <EntityTypeMapping TypeName="TRKModel.Usuario">
+        <MappingFragment StoreEntitySet="Usuario">
+          <ScalarProperty Name="idUsuario" ColumnName="idUsuario" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Apodo" ColumnName="Apodo" />
+          <ScalarProperty Name="Ciudad" ColumnName="Ciudad" />
+          <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Fecha_Nacimiento" ColumnName="Fecha_Nacimiento" />
+          <ScalarProperty Name="Nombre_Mascota" ColumnName="Nombre_Mascota" />
+          <ScalarProperty Name="Imagen_Perfil" ColumnName="Imagen_Perfil" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="TRKModel.Store.sp_alterdiagram" />
+    <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="TRKModel.Store.sp_creatediagram" />
+    <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="TRKModel.Store.sp_dropdiagram" />
+    <FunctionImportMapping FunctionImportName="sp_helpdiagramdefinition" FunctionName="TRKModel.Store.sp_helpdiagramdefinition">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="TRKModel.sp_helpdiagramdefinition_Result">
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_helpdiagrams" FunctionName="TRKModel.Store.sp_helpdiagrams">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="TRKModel.sp_helpdiagrams_Result">
+          <ScalarProperty Name="Database" ColumnName="Database" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Owner" ColumnName="Owner" />
+          <ScalarProperty Name="OwnerID" ColumnName="OwnerID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="TRKModel.Store.sp_renamediagram" />
+    <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="TRKModel.Store.sp_upgraddiagrams" />
+  </EntityContainerMapping>
+</Mapping>

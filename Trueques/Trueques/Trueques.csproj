@@ -44,6 +44,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System" />
@@ -51,6 +57,8 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Drawing" />
@@ -121,6 +129,17 @@
     <Content Include="Content\materialize.min.css" />
     <Content Include="Content\Site.css" />
     <Content Include="Default.aspx" />
+    <Content Include="EliminarProducto.aspx" />
+    <Content Include="Entities\TKR.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>TKR.Context.cs</LastGenOutput>
+      <DependentUpon>TKR.edmx</DependentUpon>
+    </Content>
+    <Content Include="Entities\TKR.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>TKR.edmx</DependentUpon>
+      <LastGenOutput>TKR.cs</LastGenOutput>
+    </Content>
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -136,15 +155,16 @@
     <Content Include="Modificacion.aspx" />
     <Content Include="Panel_Usuario.aspx" />
     <Content Include="Pregunta.aspx" />
+    <Content Include="Producto.aspx" />
+    <Content Include="Productos.aspx" />
     <Content Include="Registro.aspx" />
-    <Content Include="DataClasses1.dbml">
-      <Generator>MSLinqToSQLGenerator</Generator>
-      <LastGenOutput>DataClasses1.designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
+    <EntityDeploy Include="Entities\TKR.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>TKR.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Entities\TKR.edmx.diagram">
+      <DependentUpon>TKR.edmx</DependentUpon>
     </Content>
-    <None Include="DataClasses1.dbml.layout">
-      <DependentUpon>DataClasses1.dbml</DependentUpon>
-    </None>
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Imagenes\Perfil\Captura de pantalla %2833%29.png" />
     <Content Include="Img\Logo.jpg" />
@@ -181,6 +201,7 @@
     <Content Include="Site.Master" />
     <Content Include="Solicitudes_Trueque.aspx" />
     <Content Include="ViewSwitcher.ascx" />
+    <Content Include="vistapersona.aspx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -197,17 +218,61 @@
     <Compile Include="Cambia_Password.aspx.designer.cs">
       <DependentUpon>Cambia_Password.aspx</DependentUpon>
     </Compile>
-    <Compile Include="DataClasses1.designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DataClasses1.dbml</DependentUpon>
-    </Compile>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="EliminarProducto.aspx.cs">
+      <DependentUpon>EliminarProducto.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EliminarProducto.aspx.designer.cs">
+      <DependentUpon>EliminarProducto.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\Categoria.cs">
+      <DependentUpon>TKR.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\Etiqueta.cs">
+      <DependentUpon>TKR.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\Producto_B.cs">
+      <DependentUpon>TKR.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\Producto_T.cs">
+      <DependentUpon>TKR.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\sp_helpdiagramdefinition_Result.cs">
+      <DependentUpon>TKR.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\sp_helpdiagrams_Result.cs">
+      <DependentUpon>TKR.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\sysdiagram.cs">
+      <DependentUpon>TKR.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\TKR.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TKR.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\TKR.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TKR.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\TKR.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TKR.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\Trueque.cs">
+      <DependentUpon>TKR.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\Usuario.cs">
+      <DependentUpon>TKR.tt</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -232,6 +297,20 @@
     </Compile>
     <Compile Include="Pregunta.aspx.designer.cs">
       <DependentUpon>Pregunta.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Producto.aspx.cs">
+      <DependentUpon>Producto.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Producto.aspx.designer.cs">
+      <DependentUpon>Producto.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Productos.aspx.cs">
+      <DependentUpon>Productos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Productos.aspx.designer.cs">
+      <DependentUpon>Productos.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Seguridad.cs" />
@@ -277,6 +356,13 @@
     <Compile Include="Registro.aspx.designer.cs">
       <DependentUpon>Registro.aspx</DependentUpon>
     </Compile>
+    <Compile Include="vistapersona.aspx.cs">
+      <DependentUpon>vistapersona.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="vistapersona.aspx.designer.cs">
+      <DependentUpon>vistapersona.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -297,6 +383,7 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

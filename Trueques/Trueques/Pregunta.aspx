@@ -5,7 +5,7 @@
         <div class="card-panel">
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <br />
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <asp:Label ID="Label3" runat="server" Font-Bold="True"  Text="Recuperar Contraseña"></asp:Label>
+            <%--<asp:Label ID="Label3" runat="server" Font-Bold="True"  Text="Recuperar Contraseña"></asp:Label>--%>
             <br />
             <br />
             <asp:Label ID="Label2" runat="server"  Text="Ingresa el Email Registrado:&nbsp;"></asp:Label>
@@ -24,9 +24,10 @@
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:Label ID="recumensaje" runat="server" ></asp:Label>
             <br />
             <br />
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <asp:Button ID="recuperar" runat="server" OnClick="recuperar_Click" Text="Enviar" BackColor="#999999" ForeColor="Black" />
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <asp:Button ID="login_rec" runat="server" OnClick="login_rec_Click" Text="Login" BackColor="#999999" ForeColor="Black" />
+            <%--<asp:Button ID="login_rec" runat="server" OnClick="login_rec_Click" Text="Login" BackColor="#999999" ForeColor="Black" />--%>
             <br />
             <br />
         </div>

@@ -9,14 +9,22 @@
 
             <div class="col-xs-6 col-sm-6 col-md-6" id="div_buscan">
                 <h2 class="text-center">Recibidas</h2>
-                <table id="table_buscan">
-                </table>
+                <asp:GridView ID="grid_buscan1" runat="server" AutoGenerateColumns="false">
+                    <Columns>
+
+                    </Columns>
+                </asp:GridView>
+                <%--<table id="table_buscan">
+                </table>--%>
             </div>
 
             <div class="col-xs-6 col-sm-6 col-md-6" id="div_tienen">
                 <h2 class="text-center">Enviadas</h2>
-                <table id="table_tienen">
-                </table>
+                <asp:GridView ID="grid_tienen1" runat="server" AutoGenerateColumns="false">
+
+                </asp:GridView>
+                <%--<table id="table_tienen">
+                </table>--%>
             </div>
         </div>
     </div>

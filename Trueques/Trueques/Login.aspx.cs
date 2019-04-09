@@ -4,12 +4,13 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using Trueques.Entities;
 
 namespace Trueques
 {
     public partial class WebForm1 : System.Web.UI.Page
     {
-        DataClasses1DataContext db = new DataClasses1DataContext();
+        readonly TRKEntities db = new TRKEntities();
         protected void Page_Load(object sender, EventArgs e)
         {
             Session.Remove("user");
@@ -19,7 +20,7 @@ namespace Trueques
         {
             string usuario = this.usuario.Text;
             string password = Seguridad.Encriptar(this.password.Text);
-            var consulta = from m in db.Usuario
+            var consulta = from m in db.Usuarios
                            select new
                            {
                                m.idUsuario,

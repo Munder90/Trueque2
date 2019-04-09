@@ -10,17 +10,27 @@
     <br />
     <div class="row">
         <div class="card-panel">
-            <div class="row">
-                <div class="col-xs-6 col-sm-6 col-md-6" id="div_buscan">
-                    <h2 class="text-center">Buscan</h2>
-                    <table id="table_buscan">
-                    </table>
-                </div>
-                <div class="col-xs-6 col-sm-6 col-md-6" id="div_tienen">
-                    <h2 class="text-center">Tienen</h2>
-                    <table id="table_tienen">
-                    </table>
-                </div>
+            <div class="col-xs-6 col-sm-6 col-md-6" id="div_buscan">
+                <h2 class="text-center">Buscan</h2>
+                <%--<asp:SqlDataSource id="buscan" runat="server"
+                    connectionString="Data Source=SF-0011;Initial Catalog=TRK;Integrated Security=True"
+                    providerName="System.Data.SqlClient"
+                    SelectCommand="SELECT [imgProductoB] FROM Producto_B ORDER BY id DESC limit 10">
+                </asp:SqlDataSource>--%>
+                <asp:GridView ID="grid_buscan" runat="server" AutoGenerateColumns="false">
+                    
+                </asp:GridView>
+
+               <%-- <table id="table_buscan">
+                </table>--%>
+            </div>
+            <div class="col-xs-6 col-sm-6 col-md-6" id="div_tienen">
+                <h2 class="text-center">Tienen</h2>
+                <asp:GridView ID="grid_tienen" runat="server" AutoGenerateColumns="false">
+
+                </asp:GridView>
+                <%--<table id="table_tienen">
+                </table>--%>
             </div>
         </div>
     </div>

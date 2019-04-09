@@ -1,12 +1,12 @@
-﻿<%@ Page Title="Cambiar Contraseña" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Cambia_Password.aspx.cs" Inherits="Trueques.Cambia_Password" %>
+﻿<%@ Page Title="Restablecer Contraseña" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Cambia_Password.aspx.cs" Inherits="Trueques.Cambia_Password" %>
 
 <asp:Content ID="Cambia_Password" ContentPlaceHolderID="MainContent" runat="server">
     <div class="row">
         <div class="card-panel">
             <br />
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <asp:Label ID="Label4" runat="server" Font-Bold="True"  Text="Restablecer Contraseña"></asp:Label>
-            <br /><br /><br />
+            <%--<asp:Label ID="Label4" runat="server" Font-Bold="True"  Text="Restablecer Contraseña"></asp:Label>--%>
+            <br /><br />
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <asp:Label ID="Label2" runat="server"  Text="Nuevo Password"></asp:Label>
             <br />

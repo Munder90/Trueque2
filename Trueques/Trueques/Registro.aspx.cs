@@ -5,12 +5,13 @@ using System.Text.RegularExpressions;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using Trueques.Entities;
 
 namespace Trueques
 {
     public partial class WebForm2 : System.Web.UI.Page
     {
-        DataClasses1DataContext db = new DataClasses1DataContext();
+        readonly TRKEntities db = new TRKEntities();
         public string confirmar, prev, previoemail;
         public int dias, años, años2;
 
@@ -113,7 +114,7 @@ namespace Trueques
         protected void registrar_Click(object sender, EventArgs e)
         {
             prev = this.email.Text;
-            var consulta = from m in db.Usuario
+            var consulta = from m in db.Usuarios
                            where m.Email == prev
                            select m;
 
@@ -180,8 +181,8 @@ namespace Trueques
                                                 nuevo.Password = password.Text;
                                                 nuevo.Imagen_Perfil = ruta;
                                                 //Label3.Text = "Se guardó la imagen. y su ruta es" + Environment.NewLine + ruta;
-                                                db.Usuario.InsertOnSubmit(nuevo);
-                                                db.SubmitChanges();
+                                                db.Usuarios.Add(nuevo);
+                                                db.SaveChanges();
                                                 Response.Redirect("Login.aspx");
                                             }
                                             else

@@ -1,0 +1,305 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="TRKModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Categoria">
+    <Key>
+      <PropertyRef Name="idCategoria" />
+    </Key>
+    <Property Name="idCategoria" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombreCat" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Producto_T" Relationship="Self.FK_Producto_T_Categoria1" FromRole="Categoria" ToRole="Producto_T" />
+  </EntityType>
+  <EntityType Name="Etiqueta">
+    <Key>
+      <PropertyRef Name="idEtiqueta" />
+    </Key>
+    <Property Name="idEtiqueta" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Producto_B" Relationship="Self.FK_Producto_B_Etiqueta1" FromRole="Etiqueta" ToRole="Producto_B" />
+    <NavigationProperty Name="Producto_T" Relationship="Self.FK_Producto_T_Etiqueta1" FromRole="Etiqueta" ToRole="Producto_T" />
+  </EntityType>
+  <EntityType Name="Producto_B">
+    <Key>
+      <PropertyRef Name="idProductoB" />
+    </Key>
+    <Property Name="idProductoB" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombreProductoB" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="imgProductoB" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="idEtiquetaB" Type="Int32" />
+    <Property Name="idProductoT" Type="Int32" />
+    <Property Name="idUsuarioB" Type="Int32" />
+    <NavigationProperty Name="Etiqueta" Relationship="Self.FK_Producto_B_Etiqueta1" FromRole="Producto_B" ToRole="Etiqueta" />
+    <NavigationProperty Name="Usuario" Relationship="Self.FK_Producto_B_idUsuarioB" FromRole="Producto_B" ToRole="Usuario" />
+    <NavigationProperty Name="Producto_T" Relationship="Self.FK_Producto_B_Producto_T1" FromRole="Producto_B" ToRole="Producto_T" />
+    <NavigationProperty Name="Trueques" Relationship="Self.FK_Trueque_Producto_B" FromRole="Producto_B" ToRole="Trueque" />
+  </EntityType>
+  <EntityType Name="Producto_T">
+    <Key>
+      <PropertyRef Name="idProductoT" />
+    </Key>
+    <Property Name="idProductoT" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombreProductoT" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="imgProductoT" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="idUsuario" Type="Int32" />
+    <Property Name="idCategoria" Type="Int32" />
+    <Property Name="idEtiqueta" Type="Int32" />
+    <NavigationProperty Name="Categoria" Relationship="Self.FK_Producto_T_Categoria1" FromRole="Producto_T" ToRole="Categoria" />
+    <NavigationProperty Name="Etiqueta" Relationship="Self.FK_Producto_T_Etiqueta1" FromRole="Producto_T" ToRole="Etiqueta" />
+    <NavigationProperty Name="Producto_B" Relationship="Self.FK_Producto_B_Producto_T1" FromRole="Producto_T" ToRole="Producto_B" />
+    <NavigationProperty Name="Usuario" Relationship="Self.FK_Producto_T_Usuario1" FromRole="Producto_T" ToRole="Usuario" />
+    <NavigationProperty Name="Trueques" Relationship="Self.FK_Trueque_Producto_T" FromRole="Producto_T" ToRole="Trueque" />
+  </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="Trueque">
+    <Key>
+      <PropertyRef Name="idTrueque" />
+    </Key>
+    <Property Name="idTrueque" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Estatus" Type="Boolean" />
+    <Property Name="idProductoT" Type="Int32" />
+    <Property Name="idProductoB" Type="Int32" />
+    <Property Name="idUsuarioT" Type="Int32" />
+    <Property Name="idUsuarioB" Type="Int32" />
+    <NavigationProperty Name="Producto_B" Relationship="Self.FK_Trueque_Producto_B" FromRole="Trueque" ToRole="Producto_B" />
+    <NavigationProperty Name="Producto_T" Relationship="Self.FK_Trueque_Producto_T" FromRole="Trueque" ToRole="Producto_T" />
+    <NavigationProperty Name="Usuario" Relationship="Self.FK_Trueque_idUsuarioB" FromRole="Trueque" ToRole="Usuario" />
+    <NavigationProperty Name="Usuario1" Relationship="Self.FK_Trueque_idUsuarioT" FromRole="Trueque" ToRole="Usuario" />
+  </EntityType>
+  <EntityType Name="Usuario">
+    <Key>
+      <PropertyRef Name="idUsuario" />
+    </Key>
+    <Property Name="idUsuario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Apodo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Ciudad" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Telefono" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Fecha_Nacimiento" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Nombre_Mascota" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Imagen_Perfil" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Producto_B" Relationship="Self.FK_Producto_B_idUsuarioB" FromRole="Usuario" ToRole="Producto_B" />
+    <NavigationProperty Name="Producto_T" Relationship="Self.FK_Producto_T_Usuario1" FromRole="Usuario" ToRole="Producto_T" />
+    <NavigationProperty Name="Trueques" Relationship="Self.FK_Trueque_idUsuarioB" FromRole="Usuario" ToRole="Trueque" />
+    <NavigationProperty Name="Trueques1" Relationship="Self.FK_Trueque_idUsuarioT" FromRole="Usuario" ToRole="Trueque" />
+  </EntityType>
+  <Association Name="FK_Producto_T_Categoria1">
+    <End Role="Categoria" Type="Self.Categoria" Multiplicity="0..1" />
+    <End Role="Producto_T" Type="Self.Producto_T" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Categoria">
+        <PropertyRef Name="idCategoria" />
+      </Principal>
+      <Dependent Role="Producto_T">
+        <PropertyRef Name="idCategoria" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Producto_B_Etiqueta1">
+    <End Role="Etiqueta" Type="Self.Etiqueta" Multiplicity="0..1" />
+    <End Role="Producto_B" Type="Self.Producto_B" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Etiqueta">
+        <PropertyRef Name="idEtiqueta" />
+      </Principal>
+      <Dependent Role="Producto_B">
+        <PropertyRef Name="idEtiquetaB" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Producto_T_Etiqueta1">
+    <End Role="Etiqueta" Type="Self.Etiqueta" Multiplicity="0..1" />
+    <End Role="Producto_T" Type="Self.Producto_T" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Etiqueta">
+        <PropertyRef Name="idEtiqueta" />
+      </Principal>
+      <Dependent Role="Producto_T">
+        <PropertyRef Name="idEtiqueta" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Producto_B_idUsuarioB">
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="0..1" />
+    <End Role="Producto_B" Type="Self.Producto_B" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuario">
+        <PropertyRef Name="idUsuario" />
+      </Principal>
+      <Dependent Role="Producto_B">
+        <PropertyRef Name="idUsuarioB" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Producto_B_Producto_T1">
+    <End Role="Producto_T" Type="Self.Producto_T" Multiplicity="0..1" />
+    <End Role="Producto_B" Type="Self.Producto_B" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Producto_T">
+        <PropertyRef Name="idProductoT" />
+      </Principal>
+      <Dependent Role="Producto_B">
+        <PropertyRef Name="idProductoT" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Trueque_Producto_B">
+    <End Role="Producto_B" Type="Self.Producto_B" Multiplicity="0..1" />
+    <End Role="Trueque" Type="Self.Trueque" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Producto_B">
+        <PropertyRef Name="idProductoB" />
+      </Principal>
+      <Dependent Role="Trueque">
+        <PropertyRef Name="idProductoB" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Producto_T_Usuario1">
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="0..1" />
+    <End Role="Producto_T" Type="Self.Producto_T" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuario">
+        <PropertyRef Name="idUsuario" />
+      </Principal>
+      <Dependent Role="Producto_T">
+        <PropertyRef Name="idUsuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Trueque_Producto_T">
+    <End Role="Producto_T" Type="Self.Producto_T" Multiplicity="0..1" />
+    <End Role="Trueque" Type="Self.Trueque" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Producto_T">
+        <PropertyRef Name="idProductoT" />
+      </Principal>
+      <Dependent Role="Trueque">
+        <PropertyRef Name="idProductoT" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Trueque_idUsuarioB">
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="0..1" />
+    <End Role="Trueque" Type="Self.Trueque" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuario">
+        <PropertyRef Name="idUsuario" />
+      </Principal>
+      <Dependent Role="Trueque">
+        <PropertyRef Name="idUsuarioB" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Trueque_idUsuarioT">
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="0..1" />
+    <End Role="Trueque" Type="Self.Trueque" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuario">
+        <PropertyRef Name="idUsuario" />
+      </Principal>
+      <Dependent Role="Trueque">
+        <PropertyRef Name="idUsuarioT" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="TRKEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Categorias" EntityType="Self.Categoria" />
+    <EntitySet Name="Etiquetas" EntityType="Self.Etiqueta" />
+    <EntitySet Name="Producto_B" EntityType="Self.Producto_B" />
+    <EntitySet Name="Producto_T" EntityType="Self.Producto_T" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+    <EntitySet Name="Trueques" EntityType="Self.Trueque" />
+    <EntitySet Name="Usuarios" EntityType="Self.Usuario" />
+    <AssociationSet Name="FK_Producto_T_Categoria1" Association="Self.FK_Producto_T_Categoria1">
+      <End Role="Categoria" EntitySet="Categorias" />
+      <End Role="Producto_T" EntitySet="Producto_T" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Producto_B_Etiqueta1" Association="Self.FK_Producto_B_Etiqueta1">
+      <End Role="Etiqueta" EntitySet="Etiquetas" />
+      <End Role="Producto_B" EntitySet="Producto_B" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Producto_T_Etiqueta1" Association="Self.FK_Producto_T_Etiqueta1">
+      <End Role="Etiqueta" EntitySet="Etiquetas" />
+      <End Role="Producto_T" EntitySet="Producto_T" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Producto_B_idUsuarioB" Association="Self.FK_Producto_B_idUsuarioB">
+      <End Role="Usuario" EntitySet="Usuarios" />
+      <End Role="Producto_B" EntitySet="Producto_B" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Producto_B_Producto_T1" Association="Self.FK_Producto_B_Producto_T1">
+      <End Role="Producto_T" EntitySet="Producto_T" />
+      <End Role="Producto_B" EntitySet="Producto_B" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Trueque_Producto_B" Association="Self.FK_Trueque_Producto_B">
+      <End Role="Producto_B" EntitySet="Producto_B" />
+      <End Role="Trueque" EntitySet="Trueques" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Producto_T_Usuario1" Association="Self.FK_Producto_T_Usuario1">
+      <End Role="Usuario" EntitySet="Usuarios" />
+      <End Role="Producto_T" EntitySet="Producto_T" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Trueque_Producto_T" Association="Self.FK_Trueque_Producto_T">
+      <End Role="Producto_T" EntitySet="Producto_T" />
+      <End Role="Trueque" EntitySet="Trueques" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Trueque_idUsuarioB" Association="Self.FK_Trueque_idUsuarioB">
+      <End Role="Usuario" EntitySet="Usuarios" />
+      <End Role="Trueque" EntitySet="Trueques" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Trueque_idUsuarioT" Association="Self.FK_Trueque_idUsuarioT">
+      <End Role="Usuario" EntitySet="Usuarios" />
+      <End Role="Trueque" EntitySet="Trueques" />
+    </AssociationSet>
+    <FunctionImport Name="sp_alterdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_creatediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_dropdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(TRKModel.sp_helpdiagramdefinition_Result)">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagrams" ReturnType="Collection(TRKModel.sp_helpdiagrams_Result)">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_renamediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="new_diagramname" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_upgraddiagrams" />
+  </EntityContainer>
+  <ComplexType Name="sp_helpdiagramdefinition_Result">
+    <Property Type="Int32" Name="version" Nullable="true" />
+    <Property Type="Binary" Name="definition" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="sp_helpdiagrams_Result">
+    <Property Type="String" Name="Database" Nullable="true" MaxLength="128" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="128" />
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
+    <Property Type="Int32" Name="OwnerID" Nullable="false" />
+  </ComplexType>
+</Schema>

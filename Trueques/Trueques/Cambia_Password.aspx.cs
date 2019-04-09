@@ -5,12 +5,13 @@ using System.Text.RegularExpressions;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using Trueques.Entities;
 
 namespace Trueques
 {
     public partial class Cambia_Password : System.Web.UI.Page
     {
-        DataClasses1DataContext db = new DataClasses1DataContext();
+        readonly TRKEntities db = new TRKEntities();
         //Pregunta email;
         public string confirmar, antiguo, nuevo;
         protected void Page_Load(object sender, EventArgs e)
@@ -28,11 +29,11 @@ namespace Trueques
                 if (pass == con_pass_2.Text)
                 {
                     string modif_pass = Session["user"].ToString();
-                    var query = (from a in db.Usuario
+                    var query = (from a in db.Usuarios
                                  where a.Email == modif_pass
                                  select a).FirstOrDefault();
                     query.Password = Seguridad.Encriptar(pass);
-                    db.SubmitChanges();
+                    db.SaveChanges();
                     Session.Remove("user");
                     Response.Redirect("Login.aspx");
 

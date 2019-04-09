@@ -4,12 +4,13 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using Trueques.Entities;
 
 namespace Trueques
 {
     public partial class Pregunta : System.Web.UI.Page
     {
-        DataClasses1DataContext db = new DataClasses1DataContext();
+        readonly TRKEntities db = new TRKEntities();
         public string recuperarpass;
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -21,7 +22,7 @@ namespace Trueques
             string recuperar = email_recuperar.Text;
 
 
-            var consulta = from m in db.Usuario
+            var consulta = from m in db.Usuarios
                            where m.Email == recuperar
                            select m;
 

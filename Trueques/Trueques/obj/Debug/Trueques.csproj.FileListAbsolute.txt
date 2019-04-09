@@ -75,6 +75,7 @@ C:\Users\Solution Factory\source\repos\Trueques\Trueques\obj\Debug\Trueques.cspr
 C:\Users\Solution Factory\source\repos\Trueques\Trueques\obj\Debug\Trueques.csproj.CopyComplete
 C:\Users\Solution Factory\source\repos\Trueques\Trueques\obj\Debug\Trueques.dll
 C:\Users\Solution Factory\source\repos\Trueques\Trueques\obj\Debug\Trueques.pdb
+D:\Documents\GitHub\Trueque2\Trueques\Trueques\bin\WebGrease.dll
 D:\Documents\GitHub\Trueque2\Trueques\Trueques\bin\Trueques.dll.config
 D:\Documents\GitHub\Trueque2\Trueques\Trueques\bin\Trueques.dll
 D:\Documents\GitHub\Trueque2\Trueques\Trueques\bin\Trueques.pdb
@@ -127,6 +128,8 @@ D:\Documents\GitHub\Trueque2\Trueques\Trueques\bin\roslyn\VBCSCompiler.exe.confi
 D:\Documents\GitHub\Trueque2\Trueques\Trueques\bin\Antlr3.Runtime.dll
 D:\Documents\GitHub\Trueque2\Trueques\Trueques\bin\AspNet.ScriptManager.bootstrap.dll
 D:\Documents\GitHub\Trueque2\Trueques\Trueques\bin\AspNet.ScriptManager.jQuery.dll
+D:\Documents\GitHub\Trueque2\Trueques\Trueques\bin\EntityFramework.dll
+D:\Documents\GitHub\Trueque2\Trueques\Trueques\bin\EntityFramework.SqlServer.dll
 D:\Documents\GitHub\Trueque2\Trueques\Trueques\bin\Microsoft.AspNet.FriendlyUrls.dll
 D:\Documents\GitHub\Trueque2\Trueques\Trueques\bin\Microsoft.AspNet.TelemetryCorrelation.dll
 D:\Documents\GitHub\Trueque2\Trueques\Trueques\bin\Microsoft.AspNet.Web.Optimization.WebForms.dll
@@ -137,7 +140,8 @@ D:\Documents\GitHub\Trueque2\Trueques\Trueques\bin\Microsoft.Web.Infrastructure.
 D:\Documents\GitHub\Trueque2\Trueques\Trueques\bin\Newtonsoft.Json.dll
 D:\Documents\GitHub\Trueque2\Trueques\Trueques\bin\System.Diagnostics.DiagnosticSource.dll
 D:\Documents\GitHub\Trueque2\Trueques\Trueques\bin\System.Web.Optimization.dll
-D:\Documents\GitHub\Trueque2\Trueques\Trueques\bin\WebGrease.dll
+D:\Documents\GitHub\Trueque2\Trueques\Trueques\bin\EntityFramework.xml
+D:\Documents\GitHub\Trueque2\Trueques\Trueques\bin\EntityFramework.SqlServer.xml
 D:\Documents\GitHub\Trueque2\Trueques\Trueques\bin\System.Web.Optimization.xml
 D:\Documents\GitHub\Trueque2\Trueques\Trueques\bin\Newtonsoft.Json.xml
 D:\Documents\GitHub\Trueque2\Trueques\Trueques\bin\Antlr3.Runtime.pdb

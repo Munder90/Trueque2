@@ -50,7 +50,7 @@
             <br /><br />
             &nbsp;
             <asp:Label ID="Label11" runat="server" Text="Fecha de nacimiento: (dd/mm/yyyy)"></asp:Label>
-            &nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <asp:TextBox ID="dia" runat="server" Width="50px"></asp:TextBox>
             &nbsp;<asp:TextBox ID="mes" runat="server" Width="50px"></asp:TextBox>
             &nbsp;<asp:TextBox ID="año" runat="server" Width="50px"></asp:TextBox>
