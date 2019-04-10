@@ -89,7 +89,21 @@
         
         <asp:GridView ID="grid_productos" runat="server" AutoGenerateColumns="false">
             <Columns>
-
+                <asp:BoundField DataField="nombreProductoT" HeaderText="Producto"/>
+                <asp:ImageField DataImageUrlField="imgProductoT" HeaderText="Imagen" ControlStyle-Height="150px" ControlStyle-Width="150px"></asp:ImageField>
+                <asp:BoundField DataField="idCategoria" HeaderText="Categoria" />
+                <asp:BoundField DataField="idEtiqueta" HeaderText="Etiqueta" />
+                <asp:BoundField DataField="Disponible" HeaderText="Disponible" />
+            </Columns>
+        </asp:GridView>
+        <asp:GridView ID="grid_busco" runat="server" AutoGenerateColumns="false">
+            <Columns>
+                <asp:BoundField DataField="nombreProductoB" HeaderText="Producto"/>
+                <asp:ImageField DataImageUrlField="imgProductoB" HeaderText="Imagen" ControlStyle-Height="150px" ControlStyle-Width="150px"></asp:ImageField>
+<%--                <asp:BoundField DataField="idCategoria" HeaderText="Categoria" />--%>
+                <asp:BoundField DataField="idEtiquetaB" HeaderText="Etiqueta" />
+                <asp:BoundField DataField="idProductoT" HeaderText="Cambio por" />
+                <asp:BoundField DataField="Disponible" HeaderText="Disponible" />
             </Columns>
         </asp:GridView>
     </div>

@@ -148,7 +148,10 @@ namespace Trueques
                 Image23.ImageUrl = rutas[3, 1];
                 Image24.ImageUrl = rutas[3, 2];
                 //grid_tienen.ResolveUrl(rutas[0, 0]);
-                //grid_tienen.DataSource = rutas;
+                //var query2 = (from a in db.Producto_T
+                //              orderby a.idProductoT descending
+                //              select a).ToList();
+                //grid_tienen.DataSource = query2;
                 //grid_tienen.DataBind();
             }
             catch (Exception ex)

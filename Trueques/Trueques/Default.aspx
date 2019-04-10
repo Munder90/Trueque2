@@ -17,9 +17,9 @@
                     providerName="System.Data.SqlClient"
                     SelectCommand="SELECT [imgProductoB] FROM Producto_B ORDER BY id DESC limit 10">
                 </asp:SqlDataSource>--%>
-                <asp:GridView ID="grid_buscan" runat="server" AutoGenerateColumns="false">
+                <%--<asp:GridView ID="grid_buscan" runat="server" AutoGenerateColumns="false">
                     
-                </asp:GridView>
+                </asp:GridView>--%>
                 <asp:Image ID="Image1" runat="server" Height="150px" Width="150px" />
                 <asp:Image ID="Image2" runat="server" Height="150px" Width="150px" />
                 <asp:Image ID="Image3" runat="server" Height="150px" Width="150px" /><br />
@@ -38,11 +38,11 @@
             </div>
             <div class="col-xs-6 col-sm-6 col-md-6 " id="div_tienen">
                 <h2 class="text-center">Tienen</h2>
-                <asp:GridView ID="grid_tienen" runat="server" AutoGenerateColumns="false">
+               <%-- <asp:GridView ID="grid_tienen" runat="server" AutoGenerateColumns="false" ShowHeader="false">
                     <Columns>
-                        
+                        <asp:ImageField DataImageUrlField="imgProductoT"  Height="150px" Width="150px" ></asp:ImageField>
                     </Columns>
-                </asp:GridView>
+                </asp:GridView>--%>
                 <asp:Image ID="Image13" runat="server" Height="150px" Width="150px" />
                 <asp:Image ID="Image14" runat="server" Height="150px" Width="150px" />
                 <asp:Image ID="Image15" runat="server" Height="150px" Width="150px" /><br />
