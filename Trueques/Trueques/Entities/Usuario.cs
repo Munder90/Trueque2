@@ -17,10 +17,7 @@ namespace Trueques.Entities
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Usuario()
         {
-            this.Producto_B = new HashSet<Producto_B>();
             this.Producto_T = new HashSet<Producto_T>();
-            this.Trueques = new HashSet<Trueque>();
-            this.Trueques1 = new HashSet<Trueque>();
         }
     
         public int idUsuario { get; set; }
@@ -35,12 +32,6 @@ namespace Trueques.Entities
         public string Imagen_Perfil { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Producto_B> Producto_B { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Producto_T> Producto_T { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Trueque> Trueques { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Trueque> Trueques1 { get; set; }
     }
 }

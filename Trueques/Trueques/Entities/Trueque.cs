@@ -17,13 +17,11 @@ namespace Trueques.Entities
         public int idTrueque { get; set; }
         public Nullable<bool> Estatus { get; set; }
         public Nullable<int> idProductoT { get; set; }
-        public Nullable<int> idProductoB { get; set; }
         public Nullable<int> idUsuarioT { get; set; }
+        public Nullable<int> idProductoB { get; set; }
         public Nullable<int> idUsuarioB { get; set; }
     
         public virtual Producto_B Producto_B { get; set; }
         public virtual Producto_T Producto_T { get; set; }
-        public virtual Usuario Usuario { get; set; }
-        public virtual Usuario Usuario1 { get; set; }
     }
 }

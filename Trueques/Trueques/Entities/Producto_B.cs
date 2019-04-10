@@ -22,13 +22,13 @@ namespace Trueques.Entities
     
         public int idProductoB { get; set; }
         public string nombreProductoB { get; set; }
-        public byte[] imgProductoB { get; set; }
+        public string imgProductoB { get; set; }
+        public Nullable<int> idUsuarioB { get; set; }
         public Nullable<int> idEtiquetaB { get; set; }
         public Nullable<int> idProductoT { get; set; }
-        public Nullable<int> idUsuarioB { get; set; }
+        public Nullable<bool> Disponible { get; set; }
     
         public virtual Etiqueta Etiqueta { get; set; }
-        public virtual Usuario Usuario { get; set; }
         public virtual Producto_T Producto_T { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Trueque> Trueques { get; set; }

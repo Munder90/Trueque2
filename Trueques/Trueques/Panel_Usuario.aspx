@@ -25,7 +25,7 @@
                     <%--&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;--%>
                     <br />
                     <%--<asp:Button ID="Button2" runat="server" Text="Match" BackColor="#999999" ForeColor="Black" />--%>
-                    <a class="waves-effect waves-light btn m-b-xs" href=""><i class="material-icons left">compare_arrows</i>&nbsp;&nbsp;Mach</a>
+                    <a class="waves-effect waves-light btn m-b-xs" href="Mach"><i class="material-icons left">compare_arrows</i>&nbsp;&nbsp;Mach</a>
                     <%--&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;--%>
                     <br />
                     <%--<asp:Button ID="Button4" runat="server" Text="Trueque" BackColor="#999999" ForeColor="Black" />--%>

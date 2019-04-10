@@ -130,15 +130,15 @@
     <Content Include="Content\Site.css" />
     <Content Include="Default.aspx" />
     <Content Include="EliminarProducto.aspx" />
-    <Content Include="Entities\TKR.Context.tt">
+    <Content Include="Entities\TRK.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>TKR.Context.cs</LastGenOutput>
-      <DependentUpon>TKR.edmx</DependentUpon>
+      <DependentUpon>TRK.edmx</DependentUpon>
+      <LastGenOutput>TRK.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Entities\TKR.tt">
+    <Content Include="Entities\TRK.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>TKR.edmx</DependentUpon>
-      <LastGenOutput>TKR.cs</LastGenOutput>
+      <DependentUpon>TRK.edmx</DependentUpon>
+      <LastGenOutput>TRK.cs</LastGenOutput>
     </Content>
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -152,18 +152,19 @@
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="Login.aspx" />
+    <Content Include="Mach.aspx" />
     <Content Include="Modificacion.aspx" />
     <Content Include="Panel_Usuario.aspx" />
     <Content Include="Pregunta.aspx" />
-    <Content Include="Producto.aspx" />
+    <Content Include="Nuevo.aspx" />
     <Content Include="Productos.aspx" />
     <Content Include="Registro.aspx" />
-    <EntityDeploy Include="Entities\TKR.edmx">
+    <EntityDeploy Include="Entities\TRK.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>TKR.Designer.cs</LastGenOutput>
+      <LastGenOutput>TRK.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <Content Include="Entities\TKR.edmx.diagram">
-      <DependentUpon>TKR.edmx</DependentUpon>
+    <Content Include="Entities\TRK.edmx.diagram">
+      <DependentUpon>TRK.edmx</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Imagenes\Perfil\Captura de pantalla %2833%29.png" />
@@ -233,49 +234,56 @@
       <DependentUpon>EliminarProducto.aspx</DependentUpon>
     </Compile>
     <Compile Include="Entities\Categoria.cs">
-      <DependentUpon>TKR.tt</DependentUpon>
+      <DependentUpon>TRK.tt</DependentUpon>
     </Compile>
     <Compile Include="Entities\Etiqueta.cs">
-      <DependentUpon>TKR.tt</DependentUpon>
+      <DependentUpon>TRK.tt</DependentUpon>
     </Compile>
     <Compile Include="Entities\Producto_B.cs">
-      <DependentUpon>TKR.tt</DependentUpon>
+      <DependentUpon>TRK.tt</DependentUpon>
     </Compile>
     <Compile Include="Entities\Producto_T.cs">
-      <DependentUpon>TKR.tt</DependentUpon>
+      <DependentUpon>TRK.tt</DependentUpon>
     </Compile>
     <Compile Include="Entities\sp_helpdiagramdefinition_Result.cs">
-      <DependentUpon>TKR.tt</DependentUpon>
+      <DependentUpon>TRK.tt</DependentUpon>
     </Compile>
     <Compile Include="Entities\sp_helpdiagrams_Result.cs">
-      <DependentUpon>TKR.tt</DependentUpon>
+      <DependentUpon>TRK.tt</DependentUpon>
     </Compile>
     <Compile Include="Entities\sysdiagram.cs">
-      <DependentUpon>TKR.tt</DependentUpon>
+      <DependentUpon>TRK.tt</DependentUpon>
     </Compile>
-    <Compile Include="Entities\TKR.Context.cs">
+    <Compile Include="Entities\TRK.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>TKR.Context.tt</DependentUpon>
+      <DependentUpon>TRK.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Entities\TKR.cs">
+    <Compile Include="Entities\TRK.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>TKR.tt</DependentUpon>
+      <DependentUpon>TRK.tt</DependentUpon>
     </Compile>
-    <Compile Include="Entities\TKR.Designer.cs">
+    <Compile Include="Entities\TRK.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>TKR.edmx</DependentUpon>
+      <DependentUpon>TRK.edmx</DependentUpon>
     </Compile>
     <Compile Include="Entities\Trueque.cs">
-      <DependentUpon>TKR.tt</DependentUpon>
+      <DependentUpon>TRK.tt</DependentUpon>
     </Compile>
     <Compile Include="Entities\Usuario.cs">
-      <DependentUpon>TKR.tt</DependentUpon>
+      <DependentUpon>TRK.tt</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Mach.aspx.cs">
+      <DependentUpon>Mach.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Mach.aspx.designer.cs">
+      <DependentUpon>Mach.aspx</DependentUpon>
     </Compile>
     <Compile Include="Modificacion.aspx.cs">
       <DependentUpon>Modificacion.aspx</DependentUpon>
@@ -298,12 +306,12 @@
     <Compile Include="Pregunta.aspx.designer.cs">
       <DependentUpon>Pregunta.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Producto.aspx.cs">
-      <DependentUpon>Producto.aspx</DependentUpon>
+    <Compile Include="Nuevo.aspx.cs">
+      <DependentUpon>Nuevo.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Producto.aspx.designer.cs">
-      <DependentUpon>Producto.aspx</DependentUpon>
+    <Compile Include="Nuevo.aspx.designer.cs">
+      <DependentUpon>Nuevo.aspx</DependentUpon>
     </Compile>
     <Compile Include="Productos.aspx.cs">
       <DependentUpon>Productos.aspx</DependentUpon>

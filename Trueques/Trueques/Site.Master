@@ -71,7 +71,7 @@
             </asp:ContentPlaceHolder>
             <hr />
             <footer>
-                <p>&copy; <%: DateTime.Now.Year %> - Trueques</p>
+                <p>&copy; <%: DateTime.Now.Year %> - ITI 804</p>
             </footer>
         </div>
 

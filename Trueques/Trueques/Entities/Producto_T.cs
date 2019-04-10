@@ -23,10 +23,11 @@ namespace Trueques.Entities
     
         public int idProductoT { get; set; }
         public string nombreProductoT { get; set; }
-        public byte[] imgProductoT { get; set; }
+        public string imgProductoT { get; set; }
         public Nullable<int> idUsuario { get; set; }
         public Nullable<int> idCategoria { get; set; }
         public Nullable<int> idEtiqueta { get; set; }
+        public Nullable<bool> Disponible { get; set; }
     
         public virtual Categoria Categoria { get; set; }
         public virtual Etiqueta Etiqueta { get; set; }
