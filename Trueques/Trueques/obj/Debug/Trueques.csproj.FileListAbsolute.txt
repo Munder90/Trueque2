@@ -155,3 +155,4 @@ D:\Documents\GitHub\Trueque2\Trueques\Trueques\bin\roslyn\vbc.exe.config
 D:\Documents\GitHub\Trueque2\Trueques\Trueques\bin\roslyn\vbc.rsp
 D:\Documents\GitHub\Trueque2\Trueques\Trueques\bin\roslyn\VBCSCompiler.exe
 D:\Documents\GitHub\Trueque2\Trueques\Trueques\bin\roslyn\VBCSCompiler.exe.config
+D:\Documents\GitHub\Trueque2\Trueques\Trueques\obj\Debug\Trueques.csprojAssemblyReference.cache

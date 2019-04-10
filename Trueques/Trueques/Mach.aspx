@@ -17,11 +17,11 @@
 			        <AlternatingRowStyle BackColor="White" />
 				
 			        <Columns>				
-				        <asp:BoundField DataField="nombre" HeaderText="Nombre Productos" SortExpression="nombre" />
-				        <asp:ImageField DataImageUrlField="imagenTengo" DataImageUrlFormatString="~/Img/{0}" HeaderText="Productos Tienes">
+				        <asp:BoundField DataField="nombreProductoT" HeaderText="Nombre Productos" SortExpression="nombre" />
+				        <asp:ImageField DataImageUrlField="imgProductoT" DataImageUrlFormatString="~/Img/{0}" HeaderText="Productos Tienes">
 				        </asp:ImageField>
-				        <asp:BoundField DataField="nombreBusco" HeaderText="Producto Busco" SortExpression="nombreBusco" />
-				        <asp:ImageField DataImageUrlField="imagenBusco" DataImageUrlFormatString="~/Img/{0}" HeaderText="Productos Buscas">
+				        <asp:BoundField DataField="nombreProductoB" HeaderText="Producto Busco" SortExpression="nombreBusco" />
+				        <asp:ImageField DataImageUrlField="imgProductoB" DataImageUrlFormatString="~/Img/{0}" HeaderText="Productos Buscas">
 				        </asp:ImageField>
 				        <%--<asp:BoundField DataField="descripcion" HeaderText="Descripcion" SortExpression="descripcion" />--%>
                         <asp:ButtonField ButtonType="Button" text="Mach" CommandName="Mach" />
@@ -39,7 +39,7 @@
 		        <%--<asp:Button runat="server" Text="MACH" BackColor="#999999" Height="100px" Width="150px" ForeColor="White" ID="btn1" OnClick="Unnamed1_Click" />
 		        <asp:Button runat="server" Text="MACH" BackColor="#999999" Height="100px" Width="150px" ForeColor="White" ID="btn2" />
 		        <asp:Button runat="server" Text="MACH" BackColor="#999999" Height="100px" Width="150px" ForeColor="White" ID="btn3" />--%>
-		        <asp:SqlDataSource ID="conexion1" runat="server" ConnectionString="<%$ ConnectionStrings:TRKConnectionString %>" 
+		        <%--<asp:SqlDataSource ID="conexion1" runat="server" ConnectionString="<%$ ConnectionStrings:TRKConnectionString %>" 
 			        SelectCommand="
 				        SELECT Producto_T.nombreProductoT, Producto_T.imgProductoT, 
 				        Producto_B.nombreProductoB, Producto_B.imgProductoB
@@ -47,7 +47,7 @@
 				        WHERE Producto_T.idProductoT = Producto_B.idProductoB 
 				        AND Producto_T.idEtiqueta = Producto_B.idEtiquetaB 
 				        AND Producto_T.idUsuario = 1">
-		        </asp:SqlDataSource>	
+		        </asp:SqlDataSource>	--%>
             </div>
         </div>
     </div>

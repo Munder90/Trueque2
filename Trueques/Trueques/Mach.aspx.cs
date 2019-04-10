@@ -12,14 +12,15 @@ namespace Trueques
     public partial class Mach : System.Web.UI.Page
     {
         readonly TRKEntities db = new TRKEntities();
+        int iduser;
         protected void Page_Load(object sender, EventArgs e)
         {
             try
             {
                 string perfil = Session["user"].ToString();
-                var query = (from a in db.Usuarios
-                             where a.Email == perfil
-                             select a).FirstOrDefault();
+                iduser = (from a in db.Usuarios
+                          where a.Email == perfil
+                          select a.idUsuario).FirstOrDefault();
             }
             catch (Exception)
             {
@@ -57,6 +58,29 @@ namespace Trueques
             {
 
             }
+        }
+        protected void Buscan()
+        {
+            try
+            {
+                var query = (from a in db.Producto_T
+                             join b in db.Producto_B on a.idEtiqueta equals b.idEtiquetaB
+                             where a.Disponible == true && b.Disponible == true && a.idUsuario == iduser
+                             select new { a.nombreProductoT, a.imgProductoT, b.nombreProductoB, b.imgProductoB }).ToList();
+
+                //var query (SELECT Producto_T.nombreProductoT, Producto_T.imgProductoT,
+                //        Producto_B.nombreProductoB, Producto_B.imgProductoB
+                //        FROM Producto_B, Producto_T
+                //        WHERE Producto_T.idProductoT = Producto_B.idProductoB
+
+                //        AND Producto_T.idEtiqueta = Producto_B.idEtiquetaB
+
+                //        AND Producto_T.idUsuario = 1")
+                GridView1.DataSource = query;
+                GridView1.DataBind();
+            }
+            catch (Exception ex)
+            { }
         }
     }
 }

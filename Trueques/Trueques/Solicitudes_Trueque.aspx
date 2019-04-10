@@ -11,7 +11,15 @@
                 <h2 class="text-center">Recibidas</h2>
                 <asp:GridView ID="grid_buscan1" runat="server" AutoGenerateColumns="false">
                     <Columns>
-
+                        <asp:BoundField DataField="ApodoUser" HeaderText="Usuario" />
+                        <asp:BoundField DataField="ProductoBuscas" HeaderText="Nombre Producto" />
+                        <asp:ImageField DataImageUrlField="ImagenBuscas" HeaderText="Imagen"></asp:ImageField>
+                        <asp:BoundField DataField="ProductoTienen" HeaderText="Nombre Producto" />
+                        <asp:ImageField DataImageUrlField="ImagenTienen" HeaderText="Imagen"></asp:ImageField>
+                        <asp:BoundField DataField="Estatus" HeaderText="Estatus" />
+                        <asp:ButtonField ButtonType="Button" text="En Espera" CommandName="Espera" />
+                        <asp:ButtonField ButtonType="Button" text="Aceptar" CommandName="Aceptar" />
+                        <asp:ButtonField ButtonType="Button" text="Rechazar" CommandName="Rechazar" />
                     </Columns>
                 </asp:GridView>
                 <%--<table id="table_buscan">
