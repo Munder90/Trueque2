@@ -166,6 +166,7 @@
     <Content Include="Entities\TRK.edmx.diagram">
       <DependentUpon>TRK.edmx</DependentUpon>
     </Content>
+    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Imagenes\Perfil\Captura de pantalla %2833%29.png" />
     <Content Include="Img\Logo.jpg" />
